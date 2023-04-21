@@ -1,3 +1,7 @@
+# [click to check live](https://kingmuffy.github.io/starWar2)
+
+
+
 # Star Wars Character List
 
 This is a web application that allows you to view a list of characters from the Star Wars universe, obtained from the [Star Wars API (SWAPI)](https://swapi.py4e.com/). You can also search and filter the characters by various attributes such as name, height, mass, hair color, skin color, and eye color.
