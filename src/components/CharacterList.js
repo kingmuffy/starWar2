@@ -68,11 +68,11 @@ function CharacterList() {
   const isLastPage = page === 9
   return (
     <div className="container mx-auto">
-      <div className="flex items-center">
+      <div className="flex items-center lg:justify-between">
         {/* Search */}
-        <div className="flex items-center">
+        <div className="flex items-center  flex-wrap lg:flex-no-wrap">
           <label htmlFor="search" className="mr-2">
-            Search:
+            <span className="font-bold text-gray-600">Search:</span>
           </label>
           <input
             type="text"
@@ -84,9 +84,9 @@ function CharacterList() {
         </div>
 
         {/* Hair color filter */}
-        <div className="flex items-center">
+        <div className="flex items-center hidden lg:flex lg:justify-center">
           <label htmlFor="hair-color-filter" className="mr-2">
-            Hair Color:
+            <span className="font-bold text-gray-600"> Hair Color:</span>
           </label>
           <select
             id="hair-color-filter"
@@ -104,9 +104,9 @@ function CharacterList() {
         </div>
 
         {/* Height filter */}
-        <div className="flex items-center">
+        <div className="flex items-center hidden lg:flex">
           <label htmlFor="height-filter" className="mr-2">
-            Height:
+            <span className="font-bold text-gray-600">Height:</span>
           </label>
           <input
             type="number"
