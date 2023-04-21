@@ -2,6 +2,10 @@
 
 This is a web application that allows you to view a list of characters from the Star Wars universe, obtained from the [Star Wars API (SWAPI)](https://swapi.py4e.com/). You can also search and filter the characters by various attributes such as name, height, mass, hair color, skin color, and eye color.
 
+## Copyright
+
+All data used in this project is for practice purposes only.
+
 ## Getting Started
 
 To run the application, you will need [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) (Node Package Manager) installed on your computer. Once you have those installed, follow these steps:

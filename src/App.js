@@ -1,5 +1,6 @@
 import React from 'react'
 import CharacterList from './components/CharacterList'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -10,9 +11,7 @@ function App() {
         </h1>
         <CharacterList />
       </div>
-      <footer className="bg-gray-900 text-gray-300 text-center py-4">
-        <p>&copy; 2023 Star Wars Inc. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   )
 }

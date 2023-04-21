@@ -42,7 +42,7 @@ function CharacterList() {
   }
 
   function filterCharacters() {
-    return characters.filter((character) => {
+    const filteredCharacters = characters.filter((character) => {
       if (
         searchTerm &&
         !character.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -60,8 +60,11 @@ function CharacterList() {
       }
       return true
     })
+
+    return filteredCharacters.slice(0, 9)
   }
 
+  const isLastPage = !characters.length
   return (
     <div className="container mx-auto">
       <div className="flex items-center">
@@ -124,22 +127,29 @@ function CharacterList() {
       </motion.div>
 
       {/* Pagination */}
-      <div className="flex justify-center my-4">
+      <div className="flex justify-center mt-4">
         <button
-          className="px-4 py-2 border border-gray-400 rounded-md mr-2"
+          className="px-4 py-2 border rounded-l-md border-indigo-500 bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
           onClick={() => handlePageChange(page - 1)}
           disabled={page === 1}>
-          Previous Page
+          Previous
         </button>
-        <span className="px-4 py-2 border border-gray-400 rounded-md">
+        <span className="px-4 py-2 border border-indigo-500 bg-white text-gray-700 font-medium">
           {page}
         </span>
-        <button
-          className="px-4 py-2 border border-gray-400 rounded-md"
-          onClick={() => handlePageChange(page + 1)}
-          disabled={!characters.length}>
-          Next Page
-        </button>
+        {isLastPage ? (
+          <button
+            className="px-4 py-2 border border-indigo-500 bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 disabled:opacity-50"
+            disabled>
+            Next
+          </button>
+        ) : (
+          <button
+            className="px-4 py-2 border border-indigo-500 bg-indigo-500 text-white font-medium hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2"
+            onClick={() => handlePageChange(page + 1)}>
+            Next
+          </button>
+        )}
       </div>
     </div>
   )
