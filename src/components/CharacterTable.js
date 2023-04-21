@@ -35,12 +35,12 @@ function CharacterTable() {
   }
 
   return (
-    <div className="max-w-md mx-auto">
+    <div className="flex flex-col items-center">
       {error ? (
         <p>{error}</p>
       ) : (
         <>
-          <table>
+          <table className="w-full">
             <thead>
               <tr>
                 <th>Name</th>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import CharacterRow from './CharacterRow'
+import { motion } from 'framer-motion'
 
 function CharacterList() {
   const [characters, setCharacters] = useState([])
@@ -63,91 +64,64 @@ function CharacterList() {
 
   return (
     <div className="container mx-auto">
-      {/* Search */}
       <div className="flex items-center">
-        <label htmlFor="search" className="mr-2">
-          Search:
-        </label>
-        <input
-          type="text"
-          id="search"
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500"
-        />
-      </div>
+        {/* Search */}
+        <div className="flex items-center">
+          <label htmlFor="search" className="mr-2">
+            Search:
+          </label>
+          <input
+            type="text"
+            id="search"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500"
+          />
+        </div>
 
-      {/* Hair color filter */}
-      <div className="flex items-center">
-        <label htmlFor="hair-color-filter" className="mr-2">
-          Hair Color:
-        </label>
-        <select
-          id="hair-color-filter"
-          value={hairColorFilter}
-          onChange={handleHairColorFilterChange}
-          className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500">
-          <option value="">All</option>
-          <option value="blond">Blond</option>
-          <option value="brown">Brown</option>
-          <option value="black">Black</option>
-          <option value="red">Red</option>
-          <option value="white">White</option>
-          <option value="grey">Grey</option>
-        </select>
-      </div>
+        {/* Hair color filter */}
+        <div className="flex items-center">
+          <label htmlFor="hair-color-filter" className="mr-2">
+            Hair Color:
+          </label>
+          <select
+            id="hair-color-filter"
+            value={hairColorFilter}
+            onChange={handleHairColorFilterChange}
+            className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500">
+            <option value="">All</option>
+            <option value="blond">Blond</option>
+            <option value="brown">Brown</option>
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="white">White</option>
+            <option value="grey">Grey</option>
+          </select>
+        </div>
 
-      {/* Height filter */}
-      <div className="flex items-center">
-        <label htmlFor="height-filter" className="mr-2">
-          Height:
-        </label>
-        <input
-          type="number"
-          id="height-filter"
-          value={heightFilter}
-          onChange={handleHeightFilterChange}
-          className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500 w-24"
-        />
+        {/* Height filter */}
+        <div className="flex items-center">
+          <label htmlFor="height-filter" className="mr-2">
+            Height:
+          </label>
+          <input
+            type="number"
+            id="height-filter"
+            value={heightFilter}
+            onChange={handleHeightFilterChange}
+            className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500 w-24"
+          />
+        </div>
       </div>
 
       {/* Character table */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <motion.div
+        layout
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filterCharacters().map((character) => (
-          <div className="bg-white rounded-lg shadow-lg" key={character.name}>
-            <img
-              src={`https://starwars-visualguide.com/assets/img/characters/${
-                character.url.split('/')[5]
-              }.jpg`}
-              alt={`Picture of ${character.name}`}
-              className="w-full rounded-t-lg"
-            />
-            <div className="px-4 py-2">
-              <h2 className="text-lg font-bold mb-2">{character.name}</h2>
-              <div className="mb-2">
-                <span className="font-bold mr-2">Height:</span>
-                <span>{character.height} cm</span>
-              </div>
-              <div className="mb-2">
-                <span className="font-bold mr-2">Mass:</span>
-                <span>{character.mass} kg</span>
-              </div>
-              <div className="mb-2">
-                <span className="font-bold mr-2">Hair color:</span>
-                <span>{character.hair_color}</span>
-              </div>
-              <div className="mb-2">
-                <span className="font-bold mr-2">Skin color:</span>
-                <span>{character.skin_color}</span>
-              </div>
-              <div className="mb-2">
-                <span className="font-bold mr-2">Eye color:</span>
-                <span>{character.eye_color}</span>
-              </div>
-            </div>
-          </div>
+          <CharacterRow key={character.name} character={character} />
         ))}
-      </div>
+      </motion.div>
 
       {/* Pagination */}
       <div className="flex justify-center my-4">
