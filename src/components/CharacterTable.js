@@ -13,14 +13,20 @@ function CharacterTable() {
           `https://swapi.py4e.com/api/people/?page=${page}`
         )
         const data = await response.json()
-        setCharacters(data.results)
-        setError(null)
+
+        if (data.results.length === 0) {
+          setError('No more pages to fetch.')
+        } else {
+          setCharacters(data.results)
+          setError(null)
+        }
       } catch (error) {
         console.error(error)
         setCharacters([])
         setError('An error occurred while fetching data.')
       }
     }
+
     fetchData()
   }, [page])
 
@@ -29,7 +35,7 @@ function CharacterTable() {
   }
 
   return (
-    <div>
+    <div className="max-w-md mx-auto">
       {error ? (
         <p>{error}</p>
       ) : (
@@ -59,8 +65,17 @@ function CharacterTable() {
               disabled={page === 1}>
               Previous Page
             </button>
+            <button className="px-4 py-2 border border-gray-400 rounded-md flex items-center">
+              {page > 1 && <span className="mx-2">{page - 1}</span>}
+              Next Page
+              {characters.length === 0 && page === 1 ? (
+                <span className="mx-2">No data available</span>
+              ) : (
+                <span className="mx-2">{page + 1}</span>
+              )}
+            </button>
             <button
-              className="px-4 py-2 border border-gray-400 rounded-md"
+              className="px-4 py-2 border border-gray-400 rounded-md ml-2"
               onClick={() => handlePageChange(page + 1)}
               disabled={!characters.length}>
               Next Page

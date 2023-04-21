@@ -61,78 +61,93 @@ function CharacterList() {
     })
   }
 
-  // ...continued from previous code
-  // Inside the return statement
   return (
-    <div>
-      <div className="my-4 flex justify-between items-center">
-        {/* Search */}
-        <div className="flex items-center">
-          <label htmlFor="search" className="mr-2">
-            Search:
-          </label>
-          <input
-            type="text"
-            id="search"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500"
-          />
-        </div>
+    <div className="container mx-auto">
+      {/* Search */}
+      <div className="flex items-center">
+        <label htmlFor="search" className="mr-2">
+          Search:
+        </label>
+        <input
+          type="text"
+          id="search"
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500"
+        />
+      </div>
 
-        {/* Hair color filter */}
-        <div className="flex items-center">
-          <label htmlFor="hair-color-filter" className="mr-2">
-            Hair Color:
-          </label>
-          <select
-            id="hair-color-filter"
-            value={hairColorFilter}
-            onChange={handleHairColorFilterChange}
-            className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500">
-            <option value="">All</option>
-            <option value="blond">Blond</option>
-            <option value="brown">Brown</option>
-            <option value="black">Black</option>
-            <option value="red">Red</option>
-            <option value="white">White</option>
-            <option value="grey">Grey</option>
-          </select>
-        </div>
+      {/* Hair color filter */}
+      <div className="flex items-center">
+        <label htmlFor="hair-color-filter" className="mr-2">
+          Hair Color:
+        </label>
+        <select
+          id="hair-color-filter"
+          value={hairColorFilter}
+          onChange={handleHairColorFilterChange}
+          className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500">
+          <option value="">All</option>
+          <option value="blond">Blond</option>
+          <option value="brown">Brown</option>
+          <option value="black">Black</option>
+          <option value="red">Red</option>
+          <option value="white">White</option>
+          <option value="grey">Grey</option>
+        </select>
+      </div>
 
-        {/* Height filter */}
-        <div className="flex items-center">
-          <label htmlFor="height-filter" className="mr-2">
-            Height:
-          </label>
-          <input
-            type="number"
-            id="height-filter"
-            value={heightFilter}
-            onChange={handleHeightFilterChange}
-            className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500 w-24"
-          />
-        </div>
+      {/* Height filter */}
+      <div className="flex items-center">
+        <label htmlFor="height-filter" className="mr-2">
+          Height:
+        </label>
+        <input
+          type="number"
+          id="height-filter"
+          value={heightFilter}
+          onChange={handleHeightFilterChange}
+          className="px-2 py-1 border-gray-300 border rounded-md focus:outline-none focus:border-indigo-500 w-24"
+        />
       </div>
 
       {/* Character table */}
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Height</th>
-            <th>Mass</th>
-            <th>Hair Color</th>
-            <th>Skin Color</th>
-            <th>Eye Color</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filterCharacters().map((character) => (
-            <CharacterRow key={character.name} character={character} />
-          ))}
-        </tbody>
-      </table>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {filterCharacters().map((character) => (
+          <div className="bg-white rounded-lg shadow-lg" key={character.name}>
+            <img
+              src={`https://starwars-visualguide.com/assets/img/characters/${
+                character.url.split('/')[5]
+              }.jpg`}
+              alt={`Picture of ${character.name}`}
+              className="w-full rounded-t-lg"
+            />
+            <div className="px-4 py-2">
+              <h2 className="text-lg font-bold mb-2">{character.name}</h2>
+              <div className="mb-2">
+                <span className="font-bold mr-2">Height:</span>
+                <span>{character.height} cm</span>
+              </div>
+              <div className="mb-2">
+                <span className="font-bold mr-2">Mass:</span>
+                <span>{character.mass} kg</span>
+              </div>
+              <div className="mb-2">
+                <span className="font-bold mr-2">Hair color:</span>
+                <span>{character.hair_color}</span>
+              </div>
+              <div className="mb-2">
+                <span className="font-bold mr-2">Skin color:</span>
+                <span>{character.skin_color}</span>
+              </div>
+              <div className="mb-2">
+                <span className="font-bold mr-2">Eye color:</span>
+                <span>{character.eye_color}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
 
       {/* Pagination */}
       <div className="flex justify-center my-4">
@@ -142,6 +157,9 @@ function CharacterList() {
           disabled={page === 1}>
           Previous Page
         </button>
+        <span className="px-4 py-2 border border-gray-400 rounded-md">
+          {page}
+        </span>
         <button
           className="px-4 py-2 border border-gray-400 rounded-md"
           onClick={() => handlePageChange(page + 1)}
@@ -152,4 +170,5 @@ function CharacterList() {
     </div>
   )
 }
+
 export default CharacterList

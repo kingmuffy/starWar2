@@ -7,23 +7,14 @@ function CharacterRow({ character }) {
   }.jpg`
 
   return (
-    <>
-      <tr className="hover:bg-gray-100 hidden sm:table-row">
-        <td className="px-6 py-4 whitespace-nowrap">{name}</td>
-        <td className="px-6 py-4 whitespace-nowrap">{height}</td>
-        <td className="px-6 py-4 whitespace-nowrap">{mass}</td>
-        <td className="px-6 py-4 whitespace-nowrap">{hair_color}</td>
-        <td className="px-6 py-4 whitespace-nowrap">
-          <img src={imageURL} alt={name} className="h-10 w-10 rounded-full" />
-        </td>
-      </tr>
-      <tr className="hover:bg-gray-100 table-row sm:hidden">
-        <td className="px-6 py-4 whitespace-nowrap">{name}</td>
-        <td className="px-6 py-4 whitespace-nowrap">
-          <img src={imageURL} alt={name} className="h-10 w-10 rounded-full" />
-        </td>
-      </tr>
-    </>
+    <div>
+      <div className="hover:bg-gray-100 table-row sm:hidden mx-auto">
+        <div className="px-6 py-4 whitespace-nowrap">{name}</div>
+        <div className="px-6 py-4 whitespace-nowrap">{height}</div>
+        <div className="px-6 py-4 whitespace-nowrap">{mass}</div>
+        <img src={imageURL} alt={name} className="h-20 w-20 rounded-full" />
+      </div>
+    </div>
   )
 }
 
