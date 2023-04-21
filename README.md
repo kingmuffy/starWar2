@@ -1,3 +1,51 @@
+# Star Wars Character List
+
+This is a web application that allows you to view a list of characters from the Star Wars universe, obtained from the [Star Wars API (SWAPI)](https://swapi.py4e.com/). You can also search and filter the characters by various attributes such as name, height, mass, hair color, skin color, and eye color.
+
+## Getting Started
+
+To run the application, you will need [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/) (Node Package Manager) installed on your computer. Once you have those installed, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Navigate to the root directory of the project in your terminal or command prompt.
+3. Run `npm install` to install the necessary dependencies.
+4. Run `npm start` to start the development server.
+5. Open a web browser and go to `http://localhost:3000` to view the application.
+
+## Features
+
+The main features of the application are:
+
+### Character List
+
+The character list shows a paginated table with the following columns:
+
+- Name
+- Height
+- Mass
+- Hair Color
+- Skin Color
+- Eye Color
+
+Each row in the table represents a character from the Star Wars universe. You can click on a character's name to view more details about that character.
+
+### Search
+
+You can search for characters by name using the search box at the top of the page. The search is case-insensitive and will filter the list in real-time as you type.
+
+### Filtering
+
+You can filter the list of characters by height using the height filter input field. Only characters whose height is greater than or equal to the value entered in the field will be shown in the list. The filter is applied in real-time as you type.
+
+### Avatar
+
+Each character row displays a small image/avatar of the character. The image is loaded from the following endpoint: `https://starwars-visualguide.com/assets/img/characters/{id}.jpg`, where `{id}` is the character's ID.
+
+## Credits
+
+This project was developed by muffy as a coding exercise from Brackets . The Star Wars API (SWAPI) was used to obtain the character data, and the character avatars were loaded from the [Star Wars API Images](https://starwars-visualguide.com/) endpoint. The UI was designed using [Tailwind CSS](https://tailwindcss.com/).
+
+<!--
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,4 +116,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# starWar2
+# starWar2 -->
