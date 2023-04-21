@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/starwar2/static/css/main.db82c131.css",
-    "main.js": "/starwar2/static/js/main.007e3113.js",
+    "main.js": "/starwar2/static/js/main.d6466bc4.js",
     "index.html": "/starwar2/index.html",
     "main.db82c131.css.map": "/starwar2/static/css/main.db82c131.css.map",
-    "main.007e3113.js.map": "/starwar2/static/js/main.007e3113.js.map"
+    "main.d6466bc4.js.map": "/starwar2/static/js/main.d6466bc4.js.map"
   },
   "entrypoints": [
     "static/css/main.db82c131.css",
-    "static/js/main.007e3113.js"
+    "static/js/main.d6466bc4.js"
   ]
 }
