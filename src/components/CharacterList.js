@@ -27,6 +27,7 @@ function CharacterList() {
 
   function handlePageChange(newPage) {
     setPage(newPage)
+    window.scrollTo(0, 0)
   }
 
   function handleSearchChange(event) {
@@ -64,7 +65,7 @@ function CharacterList() {
     return filteredCharacters.slice(0, 9)
   }
 
-  const isLastPage = !characters.length
+  const isLastPage = page === 9
   return (
     <div className="container mx-auto">
       <div className="flex items-center">
@@ -122,7 +123,9 @@ function CharacterList() {
         layout
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filterCharacters().map((character) => (
-          <CharacterRow key={character.name} character={character} />
+          <div key={character.name} className="max-h-96 overflow-hidden">
+            <CharacterRow character={character} />
+          </div>
         ))}
       </motion.div>
 
