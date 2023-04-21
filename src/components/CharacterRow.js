@@ -14,7 +14,7 @@ function CharacterRow({ character }) {
       <div className="relative">
         <img
           src={imageURL}
-          alt={`Picture of ${character.name}`}
+          alt={`Picto of ${character.name}`}
           className="w-full rounded-t-lg"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>

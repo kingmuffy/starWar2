@@ -18,18 +18,18 @@ function Footer() {
           <div className="mb-4 md:mb-0">
             <h3 className="text-lg font-bold mb-2">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-gray-200">
-                <i className="fab fa-facebook fa-lg"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-200">
-                <i className="fab fa-twitter fa-lg"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-200">
-                <i className="fab fa-instagram fa-lg"></i>
-              </a>
-              <a href="#" className="text-gray-400 hover:text-gray-200">
-                <i className="fab fa-linkedin fa-lg"></i>
-              </a>
+              {/* <Link to="/" className="text-gray-400 hover:text-gray-200">
+            <i className="fab fa-facebook fa-lg"></i>
+            </Link>
+            <Link to="/" className="text-gray-400 hover:text-gray-200">
+            <i className="fab fa-twitter fa-lg"></i>
+            </Link>
+            <Link to="/" className="text-gray-400 hover:text-gray-200">
+            <i className="fab fa-instagram fa-lg"></i>
+            </Link>
+            <Link to="/" className="text-gray-400 hover:text-gray-200">
+            <i className="fab fa-linkedin fa-lg"></i>
+            </Link> */}
             </div>
           </div>
         </div>
